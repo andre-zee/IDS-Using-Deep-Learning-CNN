@@ -1,0 +1,70 @@
+Deploy Attacks Manual Page
+created by Andre for his undergraduate-thesis
+for any further info, reach me out : hello.andre@email.com
+
+Description
+	Deploy attacks is a simple bash shell script that use hping3 tools to create flood attacks. (for more info about hping3, see hping3 man page).
+	This program also combine 3 types of DoS attack into a single command such as ICMP Flood, TCP Flood, and UDP Flood.
+	And when you run the program with default mode, it will run flood attack with spoof source and maximum data as big as MTU can hold.
+	The program will run for only 60secs, because maybe if you capture the flood attacks using any-tools that can capture packet it will overuse your resources.
+	To use the program, change the permission for this file if you run the program for the first time. use chmod +x or chmod 755.	
+	Run the program without any flag will output nothing. So, run with option flag instead.
+	You can use -h or --help, to see help.
+	
+Flag option
+	-t --target-host | Target Host
+		Specify the target to send the flood attacks
+		e.g. -t 127.0.0.1
+		     --target-host=127.0.0.1
+		You must use this flag to run the program.
+
+	-a --attack-mode | Attack Mode
+		Specify the attack mode to attack the target
+		use "FLOOD" mode for send the flood attacks ASAP, "FAST" mode to atttack with 0.5sec interval or you can use "NORMAL" mode with 1sec interval.
+		e.g. -m flood
+		     --mode=normal
+
+	-m --source-mode | Host Source
+		Specify the IP address of yours.
+		use "SPOOF" source to use source IP with their IP target or use "RANDOM" source to use random IP as source IP.
+		e.g. -s sppof
+		     --source=random
+
+	-s --data-size | Data Size
+		specify the data size
+		use "MAX" default program data size without fragmented data, "BIG" default program data size with fragmented data, "MANUAL" customize your own data size.
+		e.g. -s big
+		     --data-size=max
+
+	-r --runtime | Runtime
+		specify time to take to attacks the host and make the target down. (very important to keep your resource stable, start from a short time)
+		e.g. -r 60 (where 60 is 60secs = 1min)
+		     --runtime=60
+
+	-d --default | Default Mode
+		if you do not know how to start, use the default and capture the packet to see how it works. default value can only set to 'true'.
+		e.g. -d true
+		     --default=true
+		You must use this flag to run the program.
+
+	-h --help | Help
+		to see help.
+
+
+Example
+	./deployAttacks-V4.sh -t xx.xx.xx.xx -d true | ./deployAttacks-V4.sh --target-host=xx.xx.xx.xx --default=true
+		those command let you to run the program with default mode.
+		where :
+			-) -t --target-host = target host you must to specify
+			-) -d --default =
+				*) flood mode enabled
+				*) spoof source enabled
+				*) max size enabled
+				*) run for 60secs
+
+	./deployAttacks-V4.sh -t xx.xx.xx.xx -d true -r 100 | ./deployAttacks-V4.sh --target-host=xx.xx.xx.xx --default=true --runtime=100
+		or you can run the default mode with specify the run time you want.
+		
+	
+2020. Andre.
+	

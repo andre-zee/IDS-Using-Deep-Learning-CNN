@@ -1,0 +1,20 @@
+Wireshark Dataset
+created by Andre for his undergraduate-thesis
+for any further info, reach me out : hello.andre@email.com
+
+To use wireshark data as dataset try exporting wireshark capture and filter the results as .csv file with requirement parameters below :
+'No.', 'Time', 'Source IP', 'Source port', 'Destination IP', 'Destination Port', 'Protocol', 'Packet Length', 'Data Length', 'Data', 'Data Text', 'Info'
+
+parameters to be used in the program :
+- Source IP
+- Source port
+- Destination IP
+- Destination Port
+- Protocol
+- Packet Length
+- Data Length
+- Data
+- Data Text
+- Info
+
+2020. Andre.
